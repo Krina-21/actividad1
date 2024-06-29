@@ -2,7 +2,7 @@
 # Security group for EC2 instances
 resource "aws_security_group" "web_sg" {
   name        = "web_sg"
-  description = "Allow SSH and HTTP"
+  description = "SeguridadEC2"
   vpc_id      = aws_vpc.main.id
 
   # Inbound rule for SSH
@@ -40,7 +40,7 @@ resource "aws_instance" "web_instance_1" {
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_1.id
   associate_public_ip_address = true
-  key_name      = "web_key"
+  key_name      = "keyKarina"
 
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
@@ -55,7 +55,7 @@ resource "aws_instance" "web_instance_2" {
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_2.id
   associate_public_ip_address = true
-  key_name      = "web_key"
+  key_name      = "keyKarina"
 
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
